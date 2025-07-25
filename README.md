@@ -28,7 +28,7 @@ A web-based code editor and execution environment built with React.
 
 ### Prerequisites
 
-- Node.js (version 14 or above)
+- Node.js (version 20 or above)
 - npm or yarn
 
 ### Installation
