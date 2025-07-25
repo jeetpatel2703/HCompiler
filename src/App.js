@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react';
-import Compiler from './components/Compiler';
+import Compiler from './components/Compiler/Compiler';
+import Footer from './components/Footer';
 import './App.css';
 
 // Create a theme context
@@ -21,6 +22,7 @@ function App() {
     <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
       <div className="App">
         <Compiler />
+        <Footer />
       </div>
     </ThemeContext.Provider>
   );

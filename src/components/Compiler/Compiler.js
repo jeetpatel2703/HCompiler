@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import Navbar from './Navbar';
-import CodeEditor from './CodeEditor';
-import OutputConsole from './OutputConsole';
-import Controls from './Controls';
-import executeJavaScript from '../services/JavaScriptExecutor';
-import './Compiler.css';
+import Navbar from '../Navbar';
+import CodeEditor from '../CodeEditor';
+import OutputConsole from '../OutputConsole';
+import Controls from '../Controls';
+import { executeJavaScript } from '../../services';
+import './styles.css';
 
 // Default sample code for JavaScript
 const defaultJsCode = `// Welcome to HCompiler!
@@ -105,22 +105,24 @@ const Compiler = () => {
       />
       
       <div className="main-content">
-        <div className="editor-container">
-          <Controls 
-            onRun={handleRunCode}
-            isDynamicExecution={isDynamicExecution}
-            setDynamicExecution={setDynamicExecution}
-          />
+        <div className="editor-section">
+          <div className="editor-container">
+            <Controls 
+              onRun={handleRunCode}
+              isDynamicExecution={isDynamicExecution}
+              setDynamicExecution={setDynamicExecution}
+            />
+            
+            <CodeEditor
+              code={code}
+              setCode={setCode}
+              language={selectedLanguage}
+            />
+          </div>
           
-          <CodeEditor
-            code={code}
-            setCode={setCode}
-            language={selectedLanguage}
-          />
-        </div>
-        
-        <div className="output-container">
-          <OutputConsole output={output} error={error} />
+          <div className="output-container">
+            <OutputConsole output={output} error={error} />
+          </div>
         </div>
       </div>
     </div>

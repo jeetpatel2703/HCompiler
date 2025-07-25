@@ -1,0 +1,23 @@
+.compiler-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.editor-section {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  padding: 1rem;
+  gap: 1rem;
+  height: calc(100vh - 110px); /* Adjust based on navbar height + footer */
+  overflow: hidden;
+}

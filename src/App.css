@@ -28,6 +28,9 @@
   --text-secondary: rgba(255, 255, 255, 0.7);
   --border-color: rgba(255, 255, 255, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.2);
+  
+  /* Background colors for footer */
+  --background-secondary: #2d2d45;
 }
 
 /* Light Theme */
@@ -49,6 +52,9 @@
   --text-secondary: #555555;
   --border-color: rgba(0, 0, 0, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.1);
+  
+  /* Background colors for footer */
+  --background-secondary: #eaeef2;
 }
 
 /* Animation effects */
@@ -70,12 +76,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
   background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
   background-size: 200% 200%;
   animation: gradientAnimation 15s ease infinite;
   color: var(--text-primary);
   transition: background-color 0.5s ease, color 0.5s ease;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 code {
@@ -86,9 +93,9 @@ code {
 .App {
   text-align: left;
   width: 100%;
-  height: 100vh;
-  max-height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   opacity: 0;
   animation: fadeIn 0.6s ease-out forwards;
 }

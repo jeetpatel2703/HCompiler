@@ -1,17 +1,18 @@
 import React, { useRef, useContext } from 'react';
 import Editor from '@monaco-editor/react';
-import { ThemeContext } from '../App';
+import { ThemeContext } from '../../App';
+import './styles.css';
 
 const CodeEditor = ({ code, setCode, language }) => {
   const { darkMode } = useContext(ThemeContext);
   const editorRef = useRef(null);
-  
+
   const handleEditorDidMount = (editor) => {
     editorRef.current = editor;
   };
 
   const getLanguageId = () => {
-    // Map our language IDs to Monaco's language IDs
+
     const languageMap = {
       javascript: 'javascript',
       python: 'python',
@@ -23,7 +24,7 @@ const CodeEditor = ({ code, setCode, language }) => {
   return (
     <div className="code-editor">
       <Editor
-        height="60vh"
+        height="97%"
         defaultLanguage={getLanguageId()}
         language={getLanguageId()}
         value={code}
