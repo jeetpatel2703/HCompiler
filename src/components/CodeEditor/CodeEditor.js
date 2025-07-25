@@ -24,7 +24,7 @@ const CodeEditor = ({ code, setCode, language }) => {
   return (
     <div className="code-editor">
       <Editor
-        height="100%"
+        height="97%"
         defaultLanguage={getLanguageId()}
         language={getLanguageId()}
         value={code}
