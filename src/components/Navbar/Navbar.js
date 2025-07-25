@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { ThemeContext } from '../App';
+import { ThemeContext } from '../../App';
+import './styles.css';
 
 const Navbar = ({ selectedLanguage, onLanguageChange }) => {
   const { darkMode, toggleTheme } = useContext(ThemeContext);

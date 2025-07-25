@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './styles.css';
 
 const OutputConsole = ({ output, error }) => {
   const [timestamp, setTimestamp] = useState('');

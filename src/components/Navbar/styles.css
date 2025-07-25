@@ -1,0 +1,102 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg-element);
+    backdrop-filter: blur(10px);
+    padding: 1rem 1.5rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px var(--shadow-color);
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(to right, var(--accent-color), var(--primary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-img {
+    height: 35px;
+    border-radius: var(--border-radius);
+  }
+  
+  .logo {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    background: var(--accent-color);
+    color: var(--dark-bg);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    box-shadow: 0 2px 5px var(--shadow-color);
+  }
+  
+  .navbar-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+  }
+  
+  .theme-button {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+  
+  .theme-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+  }
+  
+  .language-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .language-selector label {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+  }
+  
+  .language-selector select {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-element-translucent);
+    color: var(--text-primary);
+    cursor: pointer;
+    outline: none;
+    font-size: 0.9rem;
+    transition: all var(--transition-speed);
+  }
+  
+  .language-selector select:hover {
+    background-color: var(--bg-element);
+  }
+  
+  .language-selector select option {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
