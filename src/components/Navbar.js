@@ -14,8 +14,8 @@ const Navbar = ({ selectedLanguage, onLanguageChange }) => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <span className="logo">{'</>'}</span>
-        CodeCompiler
+        <img src="/assets/image.png" alt="HCompiler Logo" className="logo-img" />
+        Compiler
       </div>
       <div className="navbar-controls">
         <div className="theme-toggle">
