@@ -1,16 +1,10 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../App';
+import { languages } from './constants';
 import './styles.css';
 
 const Navbar = ({ selectedLanguage, onLanguageChange }) => {
   const { darkMode, toggleTheme } = useContext(ThemeContext);
-  
-  const languages = [
-    { id: 'javascript', name: 'JavaScript' },
-    // Will be implemented in future
-    { id: 'python', name: 'Python', disabled: true },
-    { id: 'java', name: 'Java', disabled: true },
-  ];
 
   return (
     <nav className="navbar">
