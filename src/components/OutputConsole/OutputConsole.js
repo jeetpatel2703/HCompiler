@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment';
 import './styles.css';
 
 const OutputConsole = ({ output, error }) => {
@@ -6,9 +7,7 @@ const OutputConsole = ({ output, error }) => {
   
   useEffect(() => {
     if (output || error) {
-      const now = new Date();
-      const time = now.toLocaleTimeString();
-      setTimestamp(time);
+      setTimestamp(moment()?.format('h:mm:ss a'));
     }
   }, [output, error]);
 

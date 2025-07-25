@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import _ from 'lodash'; // Import lodash
 import Navbar from '../Navbar';
 import CodeEditor from '../CodeEditor';
 import OutputConsole from '../OutputConsole';
@@ -39,16 +40,30 @@ const Compiler = () => {
     }
   }, [code, selectedLanguage]);
 
+  // Using lodash debounce for dynamic execution
+  const debouncedRunCode = useCallback(
+    _.debounce(() => {
+      if (code) {
+        handleRunCode();
+      }
+    }, 1000),
+    [code, handleRunCode]
+  );
+
   // Dynamic execution when enabled
   useEffect(() => {
-    if (isDynamicExecution && code) {
-      const timeoutId = setTimeout(() => {
-        handleRunCode();
-      }, 1000); // Debounce to avoid too frequent execution
+    if (isDynamicExecution) {
+      if (!code || code.trim() === '') {
+        // Clear output and error when code is empty
+        setOutput('');
+        setError(null);
+      } else {
+        debouncedRunCode();
+      }
       
-      return () => clearTimeout(timeoutId);
+      return () => debouncedRunCode.cancel();
     }
-  }, [code, isDynamicExecution, handleRunCode]);
+  }, [code, isDynamicExecution, debouncedRunCode]);
 
   const handleLanguageChange = (language) => {
     setSelectedLanguage(language);

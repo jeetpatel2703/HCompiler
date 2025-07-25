@@ -1,6 +1,7 @@
 import React, { useRef, useContext } from 'react';
 import Editor from '@monaco-editor/react';
 import { ThemeContext } from '../../App';
+import { languageMap } from './constants';
 import './styles.css';
 
 const CodeEditor = ({ code, setCode, language }) => {
@@ -12,12 +13,6 @@ const CodeEditor = ({ code, setCode, language }) => {
   };
 
   const getLanguageId = () => {
-
-    const languageMap = {
-      javascript: 'javascript',
-      python: 'python',
-      java: 'java'
-    };
     return languageMap[language] || 'javascript';
   };
 
