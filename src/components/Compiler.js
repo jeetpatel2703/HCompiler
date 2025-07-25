@@ -7,7 +7,7 @@ import executeJavaScript from '../services/JavaScriptExecutor';
 import './Compiler.css';
 
 // Default sample code for JavaScript
-const defaultJsCode = `// Welcome to CodeCompiler!
+const defaultJsCode = `// Welcome to HCompiler!
 // Try running this interactive example
 
 // Generate colors for our visualization
