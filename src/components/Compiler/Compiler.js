@@ -53,7 +53,13 @@ const Compiler = () => {
   // Dynamic execution when enabled
   useEffect(() => {
     if (isDynamicExecution) {
-      debouncedRunCode();
+      if (!code || code.trim() === '') {
+        // Clear output and error when code is empty
+        setOutput('');
+        setError(null);
+      } else {
+        debouncedRunCode();
+      }
       
       return () => debouncedRunCode.cancel();
     }
