@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import Compiler from './components/Compiler';
 import './App.css';
 
+// Create a theme context
+export const ThemeContext = createContext();
+
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
+  
+  // Apply theme to document body
+  useEffect(() => {
+    document.body.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div className="App">
-      <Compiler />
-    </div>
+    <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
+      <div className="App">
+        <Compiler />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 

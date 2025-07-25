@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const OutputConsole = ({ output, error }) => {
+  const [timestamp, setTimestamp] = useState('');
+  
+  useEffect(() => {
+    if (output || error) {
+      const now = new Date();
+      const time = now.toLocaleTimeString();
+      setTimestamp(time);
+    }
+  }, [output, error]);
+
   return (
     <div className="output-console">
       <div className="output-header">
-        <h3>Output</h3>
+        <h3>Console Output</h3>
+        {(output || error) && <span className="timestamp">{timestamp}</span>}
       </div>
       <div className="output-content">
         {error ? (
-          <pre className="error">{error}</pre>
+          <>
+            <div className="console-line console-error">
+              <span className="prefix">Error: </span>
+              <pre className="error">{error}</pre>
+            </div>
+          </>
         ) : (
           <>
             {output ? (
