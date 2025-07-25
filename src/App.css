@@ -5,17 +5,81 @@
   padding: 0;
 }
 
+/* Dark Theme (default) */
+:root {
+  --primary-color: #4a63e7;
+  --primary-dark: #3949ab;
+  --accent-color: #3dd0aa;
+  --dark-bg: #1e1e2e;
+  --light-bg: #f8f9fa;
+  --text-light: #ffffff;
+  --text-dark: #333333;
+  --error-color: #ff5252;
+  --success-color: #4caf50;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+  
+  /* Dark theme specific */
+  --bg-primary: #1e1e2e;
+  --bg-secondary: #2d2d45;
+  --bg-element: rgba(30, 30, 46, 0.8);
+  --bg-element-translucent: rgba(30, 30, 46, 0.6);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --primary-color: #3f51b5;
+  --primary-dark: #303f9f;
+  --accent-color: #00bfa5;
+  --dark-bg: #f8f9fa;
+  --light-bg: #ffffff;
+  --text-light: #333333;
+  --text-dark: #555555;
+  
+  /* Light theme specific */
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #eaeef2;
+  --bg-element: rgba(255, 255, 255, 0.9);
+  --bg-element-translucent: rgba(255, 255, 255, 0.7);
+  --text-primary: #333333;
+  --text-secondary: #555555;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Animation effects */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+  color: var(--text-primary);
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'Fira Code', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
@@ -25,39 +89,86 @@ code {
   height: 100vh;
   max-height: 100vh;
   overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+button {
+  transition: all var(--transition-speed);
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+button:focus:not(:active)::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(127, 127, 127, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(127, 127, 127, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(127, 127, 127, 0.3);
+}
+
+/* Light mode button ripple */
+[data-theme="light"] button:after {
+  background: rgba(0, 0, 0, 0.2);
 }

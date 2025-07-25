@@ -8,17 +8,20 @@ const Controls = ({ onRun, isDynamicExecution, setDynamicExecution }) => {
         onClick={onRun}
         disabled={isDynamicExecution}
       >
-        Run
+        <span className="run-icon">▶</span>
+        Run Code
       </button>
       
       <div className="execution-mode">
-        <label>
+        <label className="toggle-label">
           <input 
             type="checkbox" 
+            className="toggle-checkbox"
             checked={isDynamicExecution} 
             onChange={(e) => setDynamicExecution(e.target.checked)}
           />
-          Run automatically on change
+          <span className="toggle-switch"></span>
+          Live execution
         </label>
       </div>
     </div>

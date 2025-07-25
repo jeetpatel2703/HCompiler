@@ -7,19 +7,47 @@ import executeJavaScript from '../services/JavaScriptExecutor';
 import './Compiler.css';
 
 // Default sample code for JavaScript
-const defaultJsCode = `// JavaScript Code Example
-console.log("Hello, World!");
+const defaultJsCode = `// Welcome to CodeCompiler!
+// Try running this interactive example
 
-// Try using variables
-const name = "Coder";
-console.log(\`Welcome, \${name}!\`);
+// Generate colors for our visualization
+const generateColors = (count) => {
+  const colors = [];
+  for (let i = 0; i < count; i++) {
+    const hue = Math.floor((i / count) * 360);
+    colors.push(\`hsl(\${hue}, 80%, 60%)\`);
+  }
+  return colors;
+};
 
-// Or create a function
-function greet(person) {
-  return \`Hello, \${person}!\`;
-}
+// Create a visual pattern in the console
+const createPattern = (size = 5) => {
+  const colors = generateColors(size);
+  
+  console.log("✨ Interactive Pattern Generator ✨");
+  console.log("=================================");
+  
+  // Generate the pattern
+  for (let i = 0; i < size; i++) {
+    let row = "";
+    for (let j = 0; j < size; j++) {
+      const index = (i + j) % size;
+      row += "■ ";
+    }
+    console.log(row);
+  }
+  
+  console.log("=================================");
+  console.log(\`Pattern size: \${size}x\${size}\`);
+  console.log("Try changing the size parameter!");
+};
 
-console.log(greet("Friend"));
+// Run the demo
+createPattern(5);
+
+// You can also try your own code below
+const message = "Hello, Coder!";
+console.log(\`\${message} Welcome to your coding workspace.\`);
 `;
 
 const Compiler = () => {
