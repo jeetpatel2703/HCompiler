@@ -1,4 +1,4 @@
-name = "mycompiler"
+name = 'hcompiler'
 compatibility_date = "2025-08-08"
 
 [site]
