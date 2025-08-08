@@ -1,8 +1,0 @@
-name = 'hcompiler'
-compatibility_date = "2025-08-08"
-
-# Use pages_build_output_dir instead of [site]
-pages_build_output_dir = "build"
-
-[build]
-command = "npm run build:ci"
