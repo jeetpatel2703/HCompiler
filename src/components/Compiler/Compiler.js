@@ -47,7 +47,8 @@ const Compiler = () => {
         handleRunCode();
       }
     }, 1000),
-    [code, handleRunCode]
+    // Added proper dependency list for ESLint
+    [handleRunCode]
   );
 
   // Dynamic execution when enabled
