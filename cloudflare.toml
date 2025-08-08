@@ -3,4 +3,4 @@
   publish = "build"
 
 [deploy]
-  command = "npx wrangler pages deploy build --project-name=hcompiler"
+  command = "npx wrangler pages deploy build"
